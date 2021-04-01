@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "`order`")
+@Table(name = "ORDERS")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -23,7 +23,7 @@ public class Order extends BaseTimeEntity {
     private Orderer orderer;
 
     @OneToMany(mappedBy = "order")
-    private final List<OrderLine> orderLines = new ArrayList<>();
+    private List<OrderLine> orderLines;
 
     @Embedded
     private ShippingInfo shippingInfo;

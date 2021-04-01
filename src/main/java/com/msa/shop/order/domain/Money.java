@@ -5,18 +5,16 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 
 @Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
-public class Address {
-    @Column(name = "zip_code")
-    private String zipCode;
+public class Money {
+    @Column(name = "price")
+    private int value;
 
-    @Column(name = "address")
-    private String address;
+    public Money multiply(int multiplier) {
+        return new Money(multiplier * value);
+    }
 
-    @Embedded
-    private Receiver receiver;
 }
