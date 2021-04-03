@@ -23,6 +23,13 @@ spring:
   #    kubernetes:
   #      discovery:
   #        all-namespaces: true
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: shop-kafka.kafka.svc.cluster.local:9092
+          auto-create-topics: true
+
   application:
     name: order-service
 
