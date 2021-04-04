@@ -1,3 +1,3 @@
 # msa-shop-order
 
-msa sample project.
+msa sample project
