@@ -1,11 +1,12 @@
 plugins {
     id 'org.springframework.boot' version '2.3.9.RELEASE'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.google.cloud.tools.jib' version '2.8.0'
     id 'java'
 }
 
 group = 'com.msa.shop'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -20,6 +21,14 @@ repositories {
 
 ext {
     set('springCloudVersion', "Hoxton.SR10")
+    set('dockerId', 'khj2872')
+}
+
+jib {
+    to {
+        image = "${dockerId}/order:${version}"
+//        tags = ['latest']
+    }
 }
 
 dependencies {

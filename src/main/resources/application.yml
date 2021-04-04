@@ -25,6 +25,10 @@ spring:
   #        all-namespaces: true
   cloud:
     stream:
+      bindings:
+        output:
+          destination: orderChange
+          content-type: application/json
       kafka:
         binder:
           brokers: shop-kafka.kafka.svc.cluster.local:9092
