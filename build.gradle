@@ -25,9 +25,19 @@ ext {
 }
 
 jib {
+    from {
+        image = "openjdk:8-jre-alpine"
+    }
     to {
         image = "${dockerId}/order:${version}"
-//        tags = ['latest']
+    }
+    container {
+        mainClass = "com.msa.shop.order.OrderApplication"
+        ports = ["8080"]
+        environment = [
+                "JAVA_TOOL_OPTIONS": "-Xms512m -Xmx512m -XX:+UseG1GC",
+                "SPRING_PROFILE_ACTIVE": ""
+        ]
     }
 }
 
